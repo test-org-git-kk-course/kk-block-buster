@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Buster - Enhanced Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div class="screen active welcome-screen" id="welcomeScreen">
+            <div class="header">
+                <h1 class="title">⚡ BLOCK BUSTER</h1>
+                <p class="subtitle">Enhanced Edition with Random Levels & Power-ups</p>
+            </div>
+
+            <div class="game-screen">
+                <div class="welcome-content">
+                    <div class="game-info">
+                        <div class="info-row">
+                            <span class="info-label">🎮 GAME TYPE</span>
+                            <span class="info-value">Dynamic Brick Breaker</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">📊 LEVELS</span>
+                            <span class="info-value">Infinite Randomly Generated</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">💥 POWER-UPS</span>
+                            <span class="info-value">Multi-Ball, Mega Paddle, Auto-Bullets</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">⭐ HIGH SCORE</span>
+                            <span class="info-value" id="welcomeHighScore">0</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">🎯 FEATURES</span>
+                            <span class="info-value">Random Shapes & Patterns</span>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button class="btn-primary" onclick="startGame()">START GAME</button>
+                        <button class="btn-secondary" onclick="resetHighScore()">RESET SCORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div class="screen" id="gameScreen">
+            <div class="header">
+                <h1 class="title">⚡ BLOCK BUSTER</h1>
+                <p class="level-badge" id="levelBadge">LEVEL 1</p>
+            </div>
+
+            <div class="game-screen">
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-label">📊 Score</div>
+                        <div class="stat-value" id="scoreDisplay">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">⭐ High Score</div>
+                        <div class="stat-value" id="highScoreDisplay">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">❤️ Lives</div>
+                        <div class="stat-value" id="livesDisplay">3</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">🎯 Bricks</div>
+                        <div class="stat-value" id="bricksDisplay">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">⚫ Balls</div>
+                        <div class="stat-value" id="ballsDisplay">1</div>
+                    </div>
+                </div>
+
+                <div class="powerups-container" id="powerupsContainer"></div>
+
+                <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+                <div class="button-group">
+                    <button class="btn-primary" id="pauseBtn" onclick="togglePause()">PAUSE</button>
+                    <button class="btn-danger" onclick="goToMenu()">EXIT GAME</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div class="screen" id="gameOverScreen">
+            <div class="header">
+                <h1 class="title">🎮 GAME OVER</h1>
+            </div>
+
+            <div class="game-screen">
+                <div class="game-over-content">
+                    <div class="game-over-title" id="levelCompleteTitle"></div>
+                    
+                    <div class="results-box">
+                        <div class="result-item">
+                            <span class="result-label">Final Score:</span>
+                            <span class="result-value" id="finalScore">0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Level Reached:</span>
+                            <span class="result-value" id="finalLevel">0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">High Score:</span>
+                            <span class="result-value" id="finalHighScore">0</span>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button class="btn-primary" id="nextBtn" onclick="nextLevel()">NEXT LEVEL</button>
+                        <button class="btn-secondary" onclick="goToMenu()">MAIN MENU</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
