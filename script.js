@@ -22,7 +22,7 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
 let paddle = {
-    width: 100,
+    width: 150,
     height: 15,
     x: (canvas.width - 100) / 2,
     y: canvas.height - 25,
@@ -39,8 +39,8 @@ let keyboard = {
 
 // ===== LEVEL CONFIGURATIONS =====
 // SUPER SIMPLE - SAME SPEED FOR ALL LEVELS
-const BALL_DX = 3;
-const BALL_DY = 3;
+const BALL_DX = 4;
+const BALL_DY = 4;
 
 const levelConfigs = {
     1: {
@@ -395,7 +395,7 @@ function activatePowerUp(type) {
 
 function updatePowerUpDurations() {
     const currentTime = Date.now();
-    const POWER_UP_DURATION = 10000; // 10 seconds in milliseconds
+    const POWER_UP_DURATION = 15000; // 10 seconds in milliseconds
 
     // Multi-Ball
     if (gameState.powerups.multiBall.active) {
