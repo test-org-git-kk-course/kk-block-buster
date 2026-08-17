@@ -21,3 +21,6 @@ jobs:
         run: |
           echo "Deploying to the Blockbuster server..."
           echo "Deployment successful! Your project is now live."
+      - uses: mscoutermarsh/ascii-art-action@master
+        with:
+          text: 'KodeKloud Block Buster'
