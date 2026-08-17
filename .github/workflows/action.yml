@@ -1,0 +1,23 @@
+name: Blockbuster Deploy
+
+on:
+   push:
+     branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a one-line script
+        run: echo "Building the blockbuster project!"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to Blockbuster
+        run: |
+          echo "Deploying to the Blockbuster server..."
+          echo "Deployment successful! Your project is now live."
