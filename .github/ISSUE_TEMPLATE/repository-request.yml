@@ -1,1 +1,83 @@
+name: Repository Request
+description: Request creation and configuration of repositories
+title: "[Repository Request]: "
+labels:
+  - repo-request
 
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Repository Creation Request
+
+        Please provide the required information below.
+
+  - type: input
+    id: repository-name
+    attributes:
+      label: Repository Name
+      description: Enter the name of the main repository.
+      placeholder: example-repository
+    validations:
+      required: true
+
+  - type: input
+    id: team-name
+    attributes:
+      label: Team Name
+      description: Enter the GitHub team that should have access.
+      placeholder: example-team
+    validations:
+      required: true
+
+  - type: dropdown
+    id: visibility
+    attributes:
+      label: Repository Visibility
+      description: Select the required repository visibility.
+      options:
+        - private
+        - internal
+        - public
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: owner
+    attributes:
+      label: Repository Owner
+      description: Enter the owner/team responsible for the repository.
+      placeholder: platform-team
+    validations:
+      required: true
+
+  - type: textarea
+    id: sub-repositories
+    attributes:
+      label: Sub-repositories
+      description: |
+        Enter any additional repositories that should be created.
+
+        Enter one repository per line.
+      placeholder: |
+        example-repository-test
+        example-repository-docs
+        example-repository-tools
+
+  - type: input
+    id: default-branch
+    attributes:
+      label: Default Branch
+      description: Enter the required default branch.
+      placeholder: main
+      value: main
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-details
+    attributes:
+      label: Additional Details
+      description: Provide any other repository configuration requirements.
+      placeholder: Enter additional requirements here.
